@@ -34,8 +34,8 @@
 
 ; converts message via a given char-codec-function
 (defn code [keyword message codec]
-  (let [cyclic-key (cycle (seq keyword))
-        converted (map codec cyclic-key (seq message))]
+  (let [cyclic-key (cycle keyword)
+        converted (map codec cyclic-key message)]
     (reduce str converted)))
 
 (defn encode [keyword message]
